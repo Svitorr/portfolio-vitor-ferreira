@@ -3,84 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vitor Ferreira | Desenvolvedor .NET</title>
+  <title>Vitor Ferreira | Desenvolvedor .NET e Chatbots</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1120;
       color: #e5e7eb;
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+    }
+
     header {
-      padding: 70px 20px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.35), transparent 35%),
+        linear-gradient(135deg, #020617, #111827 55%, #1e3a8a);
+      padding: 80px 20px 70px;
       text-align: center;
-      background: linear-gradient(135deg, #111827, #1e3a8a);
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      margin-bottom: 18px;
+      border: 1px solid #2563eb;
+      border-radius: 999px;
+      color: #bfdbfe;
+      background: rgba(37, 99, 235, 0.12);
+      font-size: 14px;
+      font-weight: 600;
     }
 
     header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 46px;
+      margin: 0 0 12px;
+      color: #f8fafc;
+    }
+
+    header h2 {
+      font-size: 22px;
+      margin: 0 0 18px;
+      font-weight: 500;
+      color: #93c5fd;
+      border: none;
+      padding: 0;
     }
 
     header p {
-      font-size: 20px;
-      color: #cbd5e1;
       max-width: 900px;
-      margin: 0 auto;
+      margin: 0 auto 28px;
+      color: #cbd5e1;
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-secondary {
+      border: 1px solid #334155;
+      color: #dbeafe;
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .btn-secondary:hover {
+      border-color: #60a5fa;
     }
 
     .container {
-      max-width: 1050px;
+      max-width: 1120px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 44px 20px;
     }
 
     section {
-      margin-bottom: 45px;
+      margin-bottom: 52px;
     }
 
     h2 {
       color: #60a5fa;
       border-bottom: 1px solid #334155;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+      font-size: 26px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
     .card {
-      background: #111827;
-      border: 1px solid #334155;
-      border-radius: 14px;
+      background: linear-gradient(180deg, #111827, #0f172a);
+      border: 1px solid #1e293b;
+      border-radius: 16px;
       padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
     }
 
     .card h3 {
       margin-top: 0;
+      margin-bottom: 10px;
       color: #f8fafc;
+      font-size: 21px;
+    }
+
+    .card small {
+      display: block;
+      color: #93c5fd;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: #cbd5e1;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #d1d5db;
     }
 
     .tags {
-      margin-top: 15px;
+      margin-top: 18px;
     }
 
     .tag {
       display: inline-block;
-      background: #1d4ed8;
-      color: white;
+      background: rgba(37, 99, 235, 0.18);
+      border: 1px solid rgba(96, 165, 250, 0.35);
+      color: #bfdbfe;
       padding: 6px 10px;
       border-radius: 999px;
-      font-size: 14px;
+      font-size: 13px;
       margin: 4px 4px 4px 0;
+      font-weight: 600;
+    }
+
+    .highlight {
+      border-left: 4px solid #2563eb;
     }
 
     .contact a {
-      color: #93c5fd;
-      text-decoration: none;
       display: block;
-      margin-bottom: 8px;
+      text-decoration: none;
+      color: #bfdbfe;
+      margin-bottom: 10px;
+      word-break: break-word;
     }
 
     .contact a:hover {
@@ -89,147 +200,267 @@
 
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 30px 20px;
       background: #020617;
       color: #94a3b8;
+      border-top: 1px solid #1e293b;
+    }
+
+    @media (max-width: 850px) {
+      header h1 {
+        font-size: 36px;
+      }
+
+      header h2 {
+        font-size: 19px;
+      }
+
+      .grid,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <header>
+    <span class="badge">Portfólio Profissional</span>
+
     <h1>Vitor Ferreira</h1>
+
+    <h2>Desenvolvedor .NET | APIs REST | SQL Server | OutSystems | Chatbots e IA Conversacional</h2>
+
     <p>
-      Desenvolvedor .NET | C# | ASP.NET Core | APIs REST | SQL Server | OutSystems | Chatbots
+      Desenvolvedor com experiência prática em sistemas corporativos, manutenção e evolução de aplicações,
+      criação de APIs, regras de negócio, consultas SQL, documentação técnica, automações e melhoria de fluxos
+      conversacionais. Atuação voltada para resolver problemas reais de negócio com tecnologia, organização e
+      visão de produto.
     </p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:vitorferreira2003@live.com">Entrar em contato</a>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/in/vitor-ferreira-3806521b1/" target="_blank">LinkedIn</a>
+      <a class="btn btn-secondary" href="https://github.com/Svitorr" target="_blank">GitHub</a>
+    </div>
   </header>
 
   <main class="container">
 
     <section>
-      <h2>Sobre mim</h2>
-      <div class="card">
+      <h2>Resumo Profissional</h2>
+
+      <div class="card highlight">
         <p>
-          Sou desenvolvedor com experiência em desenvolvimento e manutenção de aplicações,
-          APIs REST, integração entre sistemas, banco de dados SQL Server e documentação técnica.
-          Tenho vivência com C#, ASP.NET Core, Web API, SQL Server, procedures, regras de negócio,
-          DTOs, camadas de aplicação e suporte à evolução de sistemas internos.
+          Tenho experiência com desenvolvimento e sustentação de funcionalidades em ambiente corporativo,
+          trabalhando com C#, .NET, ASP.NET Core, APIs REST, SQL Server, procedures, DTOs, camadas de aplicação
+          e integração entre sistemas. Também possuo vivência com OutSystems, análise de regras de negócio,
+          validações, fluxos internos e melhoria de processos digitais.
         </p>
+
         <p>
-          Também possuo experiência com análise de conversas de chatbot, identificação de falhas
-          de entendimento, melhorias de fluxo, fallback, intenções e otimização da jornada do usuário.
+          Além do desenvolvimento tradicional, atuo com análise e otimização de chatbots, avaliando conversas,
+          intenções, fallback, pontos de abandono, escalonamento humano e melhorias na experiência do usuário.
+          Meu foco é entregar soluções funcionais, bem estruturadas e alinhadas às necessidades da empresa.
         </p>
       </div>
     </section>
 
     <section>
-      <h2>Tecnologias e Ferramentas</h2>
-      <div class="card">
-        <span class="tag">C#</span>
-        <span class="tag">.NET</span>
-        <span class="tag">ASP.NET Core</span>
-        <span class="tag">ASP.NET MVC</span>
-        <span class="tag">APIs REST</span>
-        <span class="tag">SQL Server</span>
-        <span class="tag">Entity Framework Core</span>
-        <span class="tag">OutSystems</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">Git</span>
-        <span class="tag">GitHub</span>
-        <span class="tag">Azure DevOps</span>
-        <span class="tag">Chatbots</span>
+      <h2>Principais Competências</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Backend e APIs</h3>
+          <p>
+            Desenvolvimento e manutenção de endpoints REST, organização de camadas, DTOs,
+            regras de negócio e integração com banco de dados.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Banco de Dados</h3>
+          <p>
+            Consultas SQL, procedures, relacionamento entre tabelas, extração de dados,
+            filtros, relatórios e apoio à tomada de decisão.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Chatbots e IA</h3>
+          <p>
+            Análise de conversas, melhoria de fluxos, identificação de falhas, fallback,
+            intenções, automações e jornada do usuário.
+          </p>
+        </div>
       </div>
     </section>
 
     <section>
-      <h2>Experiência Técnica</h2>
+      <h2>Experiências e Entregas</h2>
 
       <div class="card">
-        <h3>API e Relatórios de Contratos</h3>
+        <h3>Sistema Corporativo de Contratos</h3>
+        <small>Desenvolvimento .NET, API REST, SQL Server e regras de negócio</small>
+
         <p>
-          Atuação no desenvolvimento e manutenção de funcionalidades em sistema corporativo,
-          envolvendo criação de endpoints, regras de negócio, consultas SQL, procedures e
-          estruturação de dados para relatórios e notificações.
+          Atuação em funcionalidade voltada para consulta, organização e envio de informações de contratos,
+          envolvendo integração entre API, camada de negócio, banco de dados e estruturação de dados para
+          relatórios e notificações.
         </p>
+
         <ul>
-          <li>Desenvolvimento de endpoint REST em .NET</li>
-          <li>Integração entre Controller, Business, DB e DTO</li>
-          <li>Criação e ajuste de procedure em SQL Server</li>
-          <li>Consulta de contratos, usuários, status, país e perguntas dinâmicas</li>
-          <li>Organização de dados para relatórios e notificações</li>
-          <li>Documentação técnica da funcionalidade</li>
+          <li>Criação e manutenção de endpoint REST em aplicação .NET.</li>
+          <li>Integração entre Controller, camada Business, camada DB e DTOs.</li>
+          <li>Criação e ajuste de procedure no SQL Server para consulta de contratos.</li>
+          <li>Tratamento de dados como contrato, status, país, usuário responsável e perguntas dinâmicas.</li>
+          <li>Estruturação de retorno para relatórios e notificações internas.</li>
+          <li>Documentação técnica da funcionalidade para facilitar manutenção e continuidade.</li>
         </ul>
+
         <div class="tags">
           <span class="tag">C#</span>
+          <span class="tag">.NET</span>
           <span class="tag">ASP.NET Core</span>
           <span class="tag">Web API</span>
           <span class="tag">SQL Server</span>
           <span class="tag">Stored Procedures</span>
           <span class="tag">DTOs</span>
+          <span class="tag">Regras de Negócio</span>
         </div>
       </div>
 
       <div class="card">
-        <h3>Sistema de Livraria em OutSystems</h3>
+        <h3>Evolução de Sistemas em OutSystems</h3>
+        <small>Validações, regras corporativas, telas e melhoria de processos internos</small>
+
         <p>
-          Projeto acadêmico desenvolvido em OutSystems com foco em modelagem de dados,
-          CRUDs, relacionamentos entre entidades e consultas agregadas.
+          Participação em demandas de evolução e manutenção de aplicações em OutSystems,
+          com foco em regras de negócio, validações, ajustes de tela e melhoria da experiência operacional
+          para usuários internos.
         </p>
+
         <ul>
-          <li>Cadastro de clientes, livros, compras e itens de compra</li>
-          <li>Relacionamento entre cliente, compra e livro</li>
-          <li>Filtros por data, CPF e nome do cliente</li>
-          <li>Consulta de livros comprados por cliente</li>
-          <li>Consulta de livros nunca comprados</li>
-          <li>Cálculo de total por livro e valor mensal</li>
+          <li>Implementação de validações em fluxos corporativos.</li>
+          <li>Ajustes em regras de obrigatoriedade, seleção de usuários e comportamento de campos.</li>
+          <li>Criação e manutenção de lógicas envolvendo estruturas organizacionais.</li>
+          <li>Correção de inconsistências em telas, filtros, popups, dropdowns e componentes visuais.</li>
+          <li>Apoio em demandas envolvendo LGPD, duplicidade de cadastro e validação de dados.</li>
+          <li>Uso de debug e análise de fluxo para identificar causas de erro e comportamento inesperado.</li>
         </ul>
+
         <div class="tags">
           <span class="tag">OutSystems</span>
-          <span class="tag">Modelagem de Dados</span>
-          <span class="tag">CRUD</span>
-          <span class="tag">Lógica de Negócio</span>
+          <span class="tag">Low-Code</span>
+          <span class="tag">Validações</span>
+          <span class="tag">Fluxos</span>
+          <span class="tag">Debug</span>
+          <span class="tag">Sistemas Internos</span>
+          <span class="tag">Processos Corporativos</span>
         </div>
       </div>
 
       <div class="card">
-        <h3>Análise e Melhoria de Fluxos de Chatbot</h3>
+        <h3>Chatbots e Fluxos Conversacionais</h3>
+        <small>Análise de conversas, melhoria de jornadas e otimização de atendimento</small>
+
         <p>
-          Experiência com análise de conversas de chatbot, buscando identificar problemas
-          na jornada do usuário e oportunidades de melhoria.
+          Experiência com análise de conversas de chatbot e melhoria de fluxos conversacionais,
+          buscando tornar o atendimento mais claro, eficiente e alinhado ao objetivo do usuário.
         </p>
+
         <ul>
-          <li>Análise de falhas de entendimento</li>
-          <li>Identificação de pontos de abandono</li>
-          <li>Sugestão de melhorias em fluxos conversacionais</li>
-          <li>Análise de intenções e fallback</li>
-          <li>Melhoria de respostas e direcionamentos</li>
-          <li>Escalonamento para atendimento humano</li>
+          <li>Análise de falhas de entendimento em conversas reais.</li>
+          <li>Identificação de intenções, respostas inconsistentes e pontos de abandono.</li>
+          <li>Sugestão de melhorias em mensagens, direcionamentos e fallback.</li>
+          <li>Apoio na estruturação de fluxos para atendimento automatizado.</li>
+          <li>Avaliação de necessidade de escalonamento para atendimento humano.</li>
+          <li>Visão voltada à experiência do usuário e eficiência operacional.</li>
         </ul>
+
         <div class="tags">
           <span class="tag">Chatbots</span>
-          <span class="tag">Análise Conversacional</span>
-          <span class="tag">Fluxos</span>
+          <span class="tag">IA Conversacional</span>
+          <span class="tag">Prompt Engineering</span>
+          <span class="tag">Fluxos Conversacionais</span>
           <span class="tag">Fallback</span>
           <span class="tag">Intenções</span>
-          <span class="tag">Automação</span>
+          <span class="tag">Atendimento Digital</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tecnologias e Ferramentas</h2>
+
+      <div class="card">
+        <span class="tag">C#</span>
+        <span class="tag">.NET</span>
+        <span class="tag">ASP.NET Core</span>
+        <span class="tag">ASP.NET MVC</span>
+        <span class="tag">Web API</span>
+        <span class="tag">APIs REST</span>
+        <span class="tag">Entity Framework Core</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">Stored Procedures</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">Bootstrap</span>
+        <span class="tag">OutSystems</span>
+        <span class="tag">Git</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Azure DevOps</span>
+        <span class="tag">Postman</span>
+        <span class="tag">Insomnia</span>
+        <span class="tag">Chatbots</span>
+        <span class="tag">Prompt Engineering</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Como posso contribuir</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Para times de tecnologia</h3>
+          <ul>
+            <li>Desenvolver e manter APIs e funcionalidades backend.</li>
+            <li>Apoiar sustentação e evolução de sistemas internos.</li>
+            <li>Organizar regras de negócio e documentação técnica.</li>
+            <li>Atuar em integrações, banco de dados e automações.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Para times de atendimento e produto</h3>
+          <ul>
+            <li>Melhorar fluxos de chatbot e atendimento digital.</li>
+            <li>Identificar gargalos na jornada do usuário.</li>
+            <li>Otimizar respostas, fallback e direcionamentos.</li>
+            <li>Apoiar soluções com IA conversacional e automação.</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section>
       <h2>Objetivo Profissional</h2>
-      <div class="card">
+
+      <div class="card highlight">
         <p>
-          Busco oportunidades na área de desenvolvimento, especialmente com C#, .NET,
-          APIs REST, SQL Server, integrações de sistemas e soluções envolvendo chatbots
-          e automações. Tenho facilidade de aprendizado, boa adaptação e interesse constante
-          em evoluir tecnicamente.
+          Busco oportunidades como Desenvolvedor .NET, Desenvolvedor Backend, Desenvolvedor OutSystems,
+          Desenvolvedor de Chatbot ou posições relacionadas à automação, integrações e IA conversacional.
+          Tenho interesse em ambientes onde eu possa evoluir tecnicamente, contribuir com soluções reais
+          e atuar próximo às necessidades do negócio.
         </p>
       </div>
     </section>
 
     <section>
       <h2>Contato</h2>
+
       <div class="card contact">
         <a href="mailto:vitorferreira2003@live.com">vitorferreira2003@live.com</a>
         <a href="https://www.linkedin.com/in/vitor-ferreira-3806521b1/" target="_blank">LinkedIn</a>
